@@ -1,0 +1,35 @@
+
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+#GET     /                           controllers.HomeController.index
+
+GET     /                           controllers.ThesisController.index
+
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+# An example controller showing how to write asynchronous code
+GET     /chart                    controllers.ChartController.index
+GET     /tictactoe                controllers.TicTacToeController.index
+GET     /tictactoe/data           controllers.TicTacToeController.getNextMovePosition(player,board)
+
+
+GET     /modelconfigs/tictactoe                   controllers.ModelController.index
+
+GET     /modelconfigs/results/:id                   controllers.ResultsController.index(id: String)
+
+# GET     /modelconfigs/marketagent                    controllers.ChartController.index
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+GET      /ws                                   controllers.Application.socket
+
+GET      /ws/prices                            controllers.SAApplication.socket
+      

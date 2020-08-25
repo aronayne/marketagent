@@ -1,0 +1,79 @@
+
+@import dto.Details
+@import play.api.libs.json.Json
+
+@(x: List[Int], y: List[Int])
+
+@defining(play.core.PlayVersion.current) {   version =>
+ <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+
+@*  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>*@
+@*  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>*@
+@*  <script type="text/javascript" src="https://github.com/nagix/chartjs-plugin-streaming/releases/download/v1.1.0/chartjs-plugin-streaming.js"></script>*@
+@*  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pusher/4.1.0/pusher.js"></script>*@
+
+ </head>
+
+ <body>
+
+  <div style="width:75%;height:75%">
+   <canvas id="chartJSContainer"></canvas>
+  </div>
+
+  <script>
+
+          var dataValues = @Json.toJson(y);
+          var labelValues = @Json.toJson(x);
+
+          // var labelValues = []
+          //
+          // for (var i = 1; i <= 50000; i++) {
+          //  dataValues.push({
+          //   // 'x': i,
+          //   'y': i
+          //  });
+          //
+          //  labelValues.push(i)
+          // }
+
+          var options = {
+           type: 'line',
+
+           data: {
+            labels: labelValues,
+            datasets: [{
+             label: 'Results',
+             borderColor: 'rgb(255, 99, 132)', // line color
+             backgroundColor: 'rgba(255, 99, 132, 0.5)', // fill color
+             fill: false,                      // no fill
+             lineTension: 0,                   // straight line
+             data: dataValues,
+             borderWidth: 1
+            }]
+           },
+           options: {
+            fill: false,
+            scales: {
+             yAxes: [{
+              ticks: {
+               reverse: false
+              }
+             }]
+            }
+           }
+          }
+
+          var ctx = document.getElementById('chartJSContainer').getContext('2d');
+          new Chart(ctx, options);
+
+
+  </script>
+ </body>
+
+ }
+
+
+

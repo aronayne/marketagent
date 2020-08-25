@@ -1,0 +1,74 @@
+@(message: String, style: String = "scala")
+
+    @defining(play.core.PlayVersion.current) { version =>
+
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+            <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title></title>
+
+   </head>
+
+    <body>
+        <h1>Tic-Tac-Toe</h1>
+        <h2></h2>
+        <div class="flex-container flex-column">
+            <div class="flex-container flex-wrap" id="board">
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+            </div>
+                <!-- I added a little reset button because our users are going to want to play round after round of our glorious game without ever refreshing the browser! -->
+            <button id="reset-button">Start a new game</button>
+
+            <style>
+
+                    td, th {
+                        border: 1px solid black;
+                    }
+
+            </style>
+@*            <div style="text-align:left;padding-top:30px">*@
+@*                <div style="color:blue;font-size:20px;font-weight: bold;">Notes</div>*@
+@*                <table style="width:100%;padding-bottom:30px;padding-top:30px" cellspacing="0">*@
+@*                    <tr>*@
+@*                        <th>e greedy</th>*@
+@*                        <th>Number training iterations</th>*@
+@*                        <th>Gamma</th>*@
+@*                        <th>Alpha</th>*@
+@*                    </tr>*@
+@*                    <tr>*@
+@*                        <td>.1</td>*@
+@*                        <td>10000</td>*@
+@*                        <td>.1</td>*@
+@*                        <td>.1</td>*@
+@*                    </tr>*@
+@*                </table>*@
+@*                <li>Not good at defensive play.</li>*@
+@*                <li>RL algo has been trained to take first move.</li>*@
+@*                <li>Exploration is not decayed.</li>*@
+@*                <li>Against an opponent making random O positions X wins 21914, O wins 15033 and 13053 drawn games</li>*@
+@*                <li><a href="https://raw.githubusercontent.com/aronayne/marketagent/master/conf/q_table.txt?token=AAHCMFVCPBYIXU4GMUYP6HS65DBEM">Q Table for this modelconfigs</a></li>*@
+
+@*            </div>*@
+
+        </div>
+
+
+
+    </body>
+
+    <script src='/assets/javascripts/tic-tac-toe/main.js'></script>
+    <link rel="stylesheet" type="text/css" href='/assets/stylesheets/tic-tac-toe/style.css'>
+
+    }

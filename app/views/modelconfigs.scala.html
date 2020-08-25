@@ -1,0 +1,89 @@
+
+@import dto.Details
+@(liValues: List[Details])
+
+@defining(play.core.PlayVersion.current) {   version =>
+
+ <section id="top">
+  <div class="wrapper">
+   <h1><a href="https://playframework.com/documentation/@version/Home">dddd</a></h1>
+  </div>
+ </section>
+
+@* <div id="content" class="wrapper doc">*@
+
+ <html>
+  <head>
+   <style>
+           #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+           }
+
+           #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+           }
+
+           #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+           #customers tr:hover {background-color: #ddd;}
+
+           #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+           }
+   </style>
+  </head>
+
+  <table id="customers">
+ <tr>
+  <th>Model Execution Time</th>
+  <th>Epsilon (ε)</th>
+  <th>Discount (γ)</th>
+  <th>Step (α)</th>
+  <th>μ R</th>
+  <th>Games Played</th>
+  <th>X Wins</th>
+  <th>O Wins</th>
+  <th>drawn</th>
+  <th>Max R</th>
+  <th>Episode R Max</th>
+  <th>Annealing of hyper parameters?</th>
+  <th># Episodes</th>
+  <th>Notes</th>
+  <th>Charts</th>
+ </tr>
+
+@for(value <- liValues){
+ <tr>
+  <td>@value.date</td>
+  <td>@value.epsilon</td>
+  <td>@value.discount</td>
+  <td>@value.stepsize</td>
+  <td>@value.averagereward</td>
+  <td>@value.numbergames</td>
+  <td>@value.xgamewins</td>
+  <td>@value.ogamewins</td>
+  <td>@value.drawn</td>
+  <td>-</td>
+  <td>-</td>
+  <td>None</td>
+  <td>50000</td>
+  <td>@value.notes</td>
+  <td><a href="/modelconfigs/results/@value.id">Chart</a></td>
+  </td>
+ </tr>
+}
+</table>
+ </html>
+@* </div>*@
+ <a href="/tictactoe">Play Game</a>
+ }
+
+
+
