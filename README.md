@@ -1,8 +1,6 @@
-Created playground folder for trying things out. 
-Will need to add this as a source folder in IDE to run the code in this folder.
+Web application showcasing thesis implemented models - Q learning and DQN.
 
-The above command will get the latest tag which could be anything. This is great if you want to be bleeding edge, but when you’re doing realistic deployments you probably want to be in control of the versioning information. Instead, you might want to specify the tag like this:
-
+# mongoDB setup
 docker pull mongo:4.0.4
 
 At the time of writing this, MongoDB 4.0.4 is the latest version and it is what the latest tag represents. This time we’re actually specifying the 4.0.4 tag because that is what we want.
